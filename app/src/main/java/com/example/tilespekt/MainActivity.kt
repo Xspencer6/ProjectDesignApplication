@@ -2,6 +2,8 @@ package com.example.tilespekt
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,15 +11,36 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.forEach
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.util.Log
+import android.widget.ImageView
+import android.widget.PopupMenu
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.tilespekt.databinding.ActivityMainBinding
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var bottomNav : BottomNavigationView
+    private lateinit var binding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
+        replaceFragment(DashboardFragment())
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.dashboard -> replaceFragment(DashboardFragment())
+                R.id.mapping -> replaceFragment(MappingFragment())
+                R.id.history -> replaceFragment(HistoryFragment())
+
+                else ->{
+
+                }
+            }
+            true
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -25,18 +48,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Applying custom text appearance to BottomNavigationView menu items
-        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavView.menu.forEach { menuItem ->
-            val menuItemView = bottomNavView.findViewById<View>(menuItem.itemId)
-            menuItemView?.let {
-                val label1 = menuItemView.findViewById<TextView>(R.id.history)
-                val label2 = menuItemView.findViewById<TextView>(R.id.mapping)
-                val label3 = menuItemView.findViewById<TextView>(R.id.dashboard)
-                label1?.setTextAppearance(R.style.BottomNavTextAppearance)
-                label2?.setTextAppearance(R.style.BottomNavTextAppearance)
-                label3?.setTextAppearance(R.style.BottomNavTextAppearance)
-            }
-        }
+
+
+    }
+
+    private fun replaceFragment(fragment : Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main, fragment)
+        fragmentTransaction.commit()
     }
 }

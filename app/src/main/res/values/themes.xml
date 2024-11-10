@@ -7,11 +7,6 @@
 
     <style name="Theme.TileSpekt" parent="Base.Theme.TileSpekt" />
 
-    <style name="BottomNavTextAppearance" parent="@android:style/TextAppearance">
-        <item name="android:fontFamily">@font/poppins</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
+
 
 </resources>
