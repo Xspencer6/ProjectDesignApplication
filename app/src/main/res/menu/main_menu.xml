@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/homeButton"
+        android:icon="@drawable/dashboard"
+        android:id="@+id/dashboard"/>
+
+    <item android:title="@string/mappingButton"
+        android:icon="@drawable/location"
+        android:id="@+id/mapping"/>
+
+    <item android:title="@string/historyButton"
+        android:icon="@drawable/history"
+        android:id="@+id/history"/>
+</menu>

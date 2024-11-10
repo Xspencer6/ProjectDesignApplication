@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="#EFEFEF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/dashboardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="450dp"
+        android:background="@color/yinmnBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/dashboardTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/dashboard"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <!-- WHITE LINE FOR DESIGN-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/dashboardTextView"
+        android:layout_marginTop="27dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/white"/>
+
+    <FrameLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/rounded_login_ui"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/scanButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/summaryText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="310dp"
+            android:layout_marginStart="102dp"
+            android:layout_marginEnd="102dp"
+            android:text="@string/summaryText"
+            android:fontFamily="@font/poppins_bold"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp">
+        </TextView>
+
+        <FrameLayout
+            android:id="@+id/numDefectLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="206dp"
+            android:layout_marginBottom="200dp"
+            android:background="@drawable/rad_corner_10"
+            android:backgroundTint="@color/bittersweet">
+
+            <TextView
+                android:id="@+id/numDefectsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/numDefects"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold">
+            </TextView>
+            <!--add function that counts total number of defects and visualize count-->
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/defectTypes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="84dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="178dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/rad_corner_10"
+            android:backgroundTint="@color/ghostWhite">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="200dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/typesOfDefects"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold">
+            </TextView>
+            <!--add function that automatically visualizes types of defects-->
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/mappingDashboardContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="206dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rad_corner_10"
+            android:backgroundTint="@color/columbiaBlue">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="100dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/defectLocation"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                >
+
+            </TextView>
+        </FrameLayout>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginEnd="125dp"
+        android:backgroundTint="@color/brightPink"
+        android:text="@string/scanButton"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.824" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scanButton"
+        app:layout_constraintVertical_bias="0.0"
+        app:menu="@menu/main_menu"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
