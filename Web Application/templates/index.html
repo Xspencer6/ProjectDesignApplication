@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .frame {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .summary {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inspection System</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="image">Upload Visual Input (Image):</label>
+        <input type="file" name="image" id="image" accept="image/*" required><br><br>
+
+        <label for="sound">Upload Audio Input (Sound):</label>
+        <input type="file" name="sound" id="sound" accept="audio/*" required><br><br>
+
+        <button type="submit">Inspect</button>
+    </form>
+
+    {% if visual_results %}
+    <div class="frame">
+        <h3>Visual Defects Detected</h3>
+        <p>Crack: {{ visual_results['Crack'] }}</p>
+        <p>Scratch: {{ visual_results['Scratch'] }}</p>
+        <p>Stain: {{ visual_results['Stain'] }}</p>
+    </div>
+    <div class="frame">
+        <h3>Sound Defect</h3>
+        <p>Sound Defect: {{ sound_results['Sound Quality'] }}</p>
+    </div>
+    <div class="summary">
+        <h3>Inspection Summary</h3>
+        <p>Crack: {{ inspection_summary['Crack'] }}</p>
+        <p>Scratch: {{ inspection_summary['Scratch'] }}</p>
+        <p>Stain: {{ inspection_summary['Stain'] }}</p>
+        <p>Sound Defect: {{ inspection_summary['Sound Defect'] }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
